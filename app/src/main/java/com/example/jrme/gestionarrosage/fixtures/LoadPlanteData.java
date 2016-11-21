@@ -1,5 +1,7 @@
 package com.example.jrme.gestionarrosage.fixtures;
 
+import android.content.Context;
+
 import com.example.jrme.gestionarrosage.PlanteDatabase;
 
 /**
@@ -11,9 +13,9 @@ public class LoadPlanteData {
     /**
      * Méthode qui stock des données de test dans la base de données
      */
-    public void load() {
+    public void load(Context context) {
 
-        PlanteDatabase planteDatabase = new PlanteDatabase(null);
+        PlanteDatabase planteDatabase = new PlanteDatabase(context);
 
         String[][] plantes = {
             { "Acacia", "5", "Jardin Gauche"},

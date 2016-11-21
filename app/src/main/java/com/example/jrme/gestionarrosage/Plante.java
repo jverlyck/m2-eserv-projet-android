@@ -2,7 +2,9 @@ package com.example.jrme.gestionarrosage;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Class Plante
@@ -30,8 +32,8 @@ public class Plante {
         this.lieu = lieu;
 
         try {
-            DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-            this.dernierArrosage = dateFormat.parse(dernierArrosage);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);
+            this.dernierArrosage = sdf.parse(dernierArrosage);
         } catch (ParseException e) {
             e.printStackTrace();
         }

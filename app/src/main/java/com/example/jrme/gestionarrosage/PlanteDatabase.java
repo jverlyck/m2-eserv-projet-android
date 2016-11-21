@@ -6,9 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Class PlanteDatabase
@@ -39,10 +43,10 @@ public class PlanteDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(
             "CREATE TABLE " + PlanteTable.TABLE_NAME + "(" +
-            PlanteTable.TABLE_NAME + " INTEGER PRIMARY KEY," +
+            PlanteTable._ID + " INTEGER PRIMARY KEY," +
             PlanteTable.PLANTE_NAME + " VARCHAR(50)," +
-            PlanteTable.PLANTE_FREQUENCE + " SMALLINT" +
-            PlanteTable.PLANTE_LIEU + " VARCHAR(50)" +
+            PlanteTable.PLANTE_FREQUENCE + " SMALLINT," +
+            PlanteTable.PLANTE_LIEU + " VARCHAR(50)," +
             PlanteTable.PLANTE_DERNIER_ARROSAGE + " DATE DEFAULT CURRENT_DATE)"
         );
     }
@@ -57,7 +61,7 @@ public class PlanteDatabase extends SQLiteOpenHelper {
     public List<Plante> list() {
         List<Plante> plantes = new ArrayList<Plante>();
 
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         String[] columns = {
             PlanteTable._ID,
@@ -98,7 +102,7 @@ public class PlanteDatabase extends SQLiteOpenHelper {
      * @return Object
      */
     public Plante unique(int id) {
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         String[] columns = {
             PlanteTable._ID,
@@ -141,12 +145,16 @@ public class PlanteDatabase extends SQLiteOpenHelper {
      * @param lieu Le lieu où se trouve la plante
      */
     public void add(String name, int frequence, String lieu) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(PlanteTable.PLANTE_NAME, name);
         values.put(PlanteTable.PLANTE_FREQUENCE, frequence);
         values.put(PlanteTable.PLANTE_LIEU, lieu);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);
+        String date = sdf.format(new Date());
+        values.put(PlanteTable.PLANTE_DERNIER_ARROSAGE, date);
 
         sqLiteDatabase.insert(PlanteTable.TABLE_NAME, null, values);
     }
@@ -161,7 +169,7 @@ public class PlanteDatabase extends SQLiteOpenHelper {
      * @param lieu Le lieu où se trouve la plante
      */
     public void update(int id, String name, int frequence, String lieu) {
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(PlanteTable.PLANTE_NAME, name);
@@ -185,7 +193,7 @@ public class PlanteDatabase extends SQLiteOpenHelper {
      * @param id L'id de la plante à supprimer
      */
     public void delete(int id) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         String where = PlanteTable._ID + " = ?";
         String[] whereArgs = { String.valueOf(id) };

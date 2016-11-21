@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">GestionArrosage</string>
+    <string name="app_name">Mes Plantes</string>
+    <string name="btn_fixtures">Precharger</string>
 </resources>
