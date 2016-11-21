@@ -11,8 +11,17 @@ import android.widget.TextView;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Class PlanteAdapter
+ * Author Jérôme Verlyck
+ */
 public class PlanteAdapter extends ArrayAdapter<Plante> {
 
+    /**
+     * Constructeur PlanteAdapter
+     * @param context Le contexte
+     * @param plantes La liste des plantes
+     */
     public PlanteAdapter(Context context, List<Plante> plantes) {
         super(context, 0, plantes);
     }
@@ -41,6 +50,14 @@ public class PlanteAdapter extends ArrayAdapter<Plante> {
         return convertView;
     }
 
+    /**
+     * Retourne la couleur selon le besoin d'arrosage :
+     * - plus d'un jour avant arrosage => Couleur Verte
+     * - un jour avant arrosage => Couleur Orange
+     * - en retard d'arrosage => Couleur Rouge
+     * @param plante La plante que l'on souhaite connaître la couleur
+     * @return int Couleur que l'on souhaite mettre
+     */
     private int getColorBackground(Plante plante) {
         long diff = Math.abs(new Date().getTime() - plante.getDernierArrosage().getTime());
         int nbJours = (int)(diff / (1000 * 60 * 60 * 24));

@@ -10,7 +10,7 @@ import java.util.Locale;
  * Class Plante
  * Author Jérôme Verlyck
  */
-public class Plante {
+public class Plante implements Comparable<Plante> {
 
     private int id;
     private String name;
@@ -77,5 +77,22 @@ public class Plante {
      */
     public Date getDernierArrosage() {
         return this.dernierArrosage;
+    }
+
+    /**
+     * Compare en fonction des jours non arrosé
+     * @param plante La plante avec qui on compare
+     * @return int
+     */
+    public int compareTo(Plante plante) {
+        long diff = Math.abs(new Date().getTime() - plante.dernierArrosage.getTime());
+        int nbJours1 = (int)(diff / (1000 * 60 * 60 * 24));
+        int nbJoursPasArrose1 = plante.frequence - nbJours1;
+
+        diff = Math.abs(new Date().getTime() - this.dernierArrosage.getTime());
+        int nbJours2 = (int)(diff / (1000 * 60 * 60 * 24));
+        int nbJoursPasArrose2 = this.frequence - nbJours2;
+
+        return nbJoursPasArrose2 - nbJoursPasArrose1;
     }
 }

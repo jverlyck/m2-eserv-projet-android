@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.jrme.gestionarrosage.fixtures.LoadPlanteData;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadListPlantes() {
         PlanteDatabase planteDatabase = new PlanteDatabase(this.context);
         List<Plante> plantes = planteDatabase.list();
+
+        Collections.sort(plantes);
 
         PlanteAdapter adapter = new PlanteAdapter(MainActivity.this, plantes);
         this.list_plantes.setAdapter(adapter);
