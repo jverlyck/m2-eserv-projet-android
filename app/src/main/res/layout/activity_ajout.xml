@@ -11,14 +11,15 @@
     tools:context="com.example.jrme.gestionarrosage.AjoutActivity">
 
     <TextView
-        android:text="Ajout d'une nouvelle plante"
+        android:text="@string/lb_titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:id="@+id/lb_titre"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:textColor="@android:color/secondary_text_light" />
 
     <TextView
         android:text="@string/lb_nom"
@@ -29,7 +30,8 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:layout_below="@+id/lb_titre"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/secondary_text_light" />
 
     <EditText
         android:layout_width="match_parent"
@@ -38,19 +40,20 @@
         android:ems="10"
         android:id="@+id/txt_nom"
         android:textAlignment="center"
-        android:text="saisir le nom"
         android:layout_below="@+id/lb_nom"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="@string/txt_nom" />
 
     <TextView
-        android:text="Frequence d'arrosage"
+        android:text="@string/lb_frequence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_nom"
         android:layout_centerHorizontal="true"
         android:id="@+id/lb_frequence"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@android:color/secondary_text_light" />
 
     <EditText
         android:layout_width="match_parent"
@@ -60,6 +63,53 @@
         android:layout_below="@+id/lb_frequence"
         android:layout_centerHorizontal="true"
         android:id="@+id/txt_frequence"
-        android:text="saisir la frequence en jours"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:hint="@string/txt_frequence" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lb_lieu"
+        android:id="@+id/lb_lieu"
+        android:layout_below="@+id/txt_frequence"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_light" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_lieu"
+        android:layout_below="@+id/lb_lieu"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:hint="@string/txt_lieu" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_reset"
+        android:id="@+id/btn_reset"
+        android:layout_below="@+id/txt_lieu"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:width="100sp"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ajouter"
+        android:id="@+id/btn_ajouter"
+        android:layout_alignTop="@+id/btn_reset"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp"
+        android:width="100sp"
+        android:background="@android:color/holo_green_dark"
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>

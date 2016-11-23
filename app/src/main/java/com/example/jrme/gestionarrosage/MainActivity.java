@@ -1,6 +1,5 @@
 package com.example.jrme.gestionarrosage;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +34,19 @@ public class MainActivity extends AppCompatActivity {
         this.loadWidget();
         this.loadEvent();
         this.loadListPlantes();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == 1) {
+            this.loadListPlantes();
+
+            String message = data.getStringExtra(MESSAGE_INFO);
+            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     /**

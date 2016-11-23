@@ -6,4 +6,13 @@
 
     <string name="lb_titre">Ajout d\'une nouvelle plante</string>
     <string name="lb_nom">Nom</string>
+    <string name="txt_nom">saisir le nom</string>
+    <string name="lb_frequence">Frequence d\'arrosage</string>
+    <string name="txt_frequence">saisir le nombre de jours</string>
+    <string name="lb_lieu">Lieu</string>
+    <string name="txt_lieu">saisir le lieu</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_ajouter">Ajouter</string>
+
+
 </resources>
