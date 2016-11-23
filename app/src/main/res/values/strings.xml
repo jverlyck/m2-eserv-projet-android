@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mes Plantes</string>
     <string name="btn_fixtures">Precharger</string>
+    <string name="btn_ajout">Add</string>
 </resources>

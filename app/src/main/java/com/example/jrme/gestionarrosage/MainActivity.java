@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView list_plantes;
     private Button btn_fixtures;
+    private Button btn_ajout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         this.context = getApplicationContext();
 
         this.loadWidget();
+        this.loadEvent();
         this.loadListPlantes();
     }
 
@@ -37,6 +40,42 @@ public class MainActivity extends AppCompatActivity {
     private void loadWidget() {
         this.list_plantes = (ListView) findViewById(R.id.list_plantes);
         this.btn_fixtures = (Button) findViewById(R.id.btn_fixtures);
+        this.btn_ajout    = (Button) findViewById(R.id.btn_ajout);
+    }
+
+    /**
+     * Charge les différents événements de l'activité
+     */
+    private void loadEvent() {
+        this.btn_fixtures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preLoadPlantes();
+            }
+        });
+
+        this.btn_ajout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        this.list_plantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
+
+        this.list_plantes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Toast.makeText(MainActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
     /**
@@ -55,9 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Méthode d'ajout automatique de plantes à l'aide de fixtures
-     * @param view
      */
-    public void preLoadPlantes(View view) {
+    public void preLoadPlantes() {
         LoadPlanteData planteData = new LoadPlanteData();
         planteData.load(this.context);
 

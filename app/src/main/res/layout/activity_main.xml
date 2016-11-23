@@ -30,8 +30,14 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="@string/btn_fixtures"
-            android:id="@+id/btn_fixtures"
-            android:onClick="preLoadPlantes" />
+            android:id="@+id/btn_fixtures" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/btn_ajout"
+            android:id="@+id/btn_ajout" />
     </LinearLayout>
 
 
