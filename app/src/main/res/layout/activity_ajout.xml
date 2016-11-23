@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ajout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jrme.gestionarrosage.AjoutActivity">
+
+    <TextView
+        android:text="Ajout d'une nouvelle plante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:id="@+id/lb_titre"
+        android:textSize="28sp" />
+
+    <TextView
+        android:text="@string/lb_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:id="@+id/lb_nom"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_below="@+id/lb_titre"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txt_nom"
+        android:textAlignment="center"
+        android:text="saisir le nom"
+        android:layout_below="@+id/lb_nom"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Frequence d'arrosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nom"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lb_frequence"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:layout_below="@+id/lb_frequence"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txt_frequence"
+        android:text="saisir la frequence en jours"
+        android:textAlignment="center" />
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.jrme.gestionarrosage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    public final static String MESSAGE_INFO = "Information";
 
     private PlanteDatabase planteDatabase;
 
@@ -57,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         this.btn_ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AjoutActivity.class);
+                startActivityForResult(intent, 0);
 
             }
         });
