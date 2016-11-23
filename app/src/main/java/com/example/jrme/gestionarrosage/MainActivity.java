@@ -65,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                Object o = adapterView.getItemAtPosition(i);
+
+                if(o instanceof Plante)
+                    Toast.makeText(MainActivity.this, "oui", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "non", Toast.LENGTH_SHORT).show();
             }
         });
 
