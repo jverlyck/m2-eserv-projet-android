@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Context context;
+    private PlanteDatabase planteDatabase;
 
     private ListView list_plantes;
     private Button btn_fixtures;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.context = getApplicationContext();
+        this.planteDatabase = new PlanteDatabase(getApplicationContext());
 
         this.loadWidget();
         this.loadEvent();
@@ -65,21 +65,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Object o = adapterView.getItemAtPosition(i);
 
-                if(o instanceof Plante)
+
+                /*if(o instanceof Plante)
                     Toast.makeText(MainActivity.this, "oui", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(MainActivity.this, "non", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "non", Toast.LENGTH_SHORT).show();*/
             }
         });
 
         this.list_plantes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Plante plante = (Plante) adapterView.getItemAtPosition(i);
+                plante.arrosage(planteDatabase);
 
-                Toast.makeText(MainActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                return false;
+                Toast.makeText(
+                    MainActivity.this,
+                    "Arrosage " + plante.getName() + " effectué.",
+                    Toast.LENGTH_SHORT
+                ).show();
+
+                loadListPlantes();
+                return true;
             }
         });
     }
@@ -88,8 +96,7 @@ public class MainActivity extends AppCompatActivity {
      * Charge la liste des plantes dans la listView
      */
     private void loadListPlantes() {
-        PlanteDatabase planteDatabase = new PlanteDatabase(this.context);
-        List<Plante> plantes = planteDatabase.list();
+        List<Plante> plantes = this.planteDatabase.list();
 
         //Tri les plantes en fonction de la demande d'arrosage
         Collections.sort(plantes);
@@ -103,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void preLoadPlantes() {
         LoadPlanteData planteData = new LoadPlanteData();
-        planteData.load(this.context);
+        planteData.load(this.planteDatabase);
 
         this.loadListPlantes();
 

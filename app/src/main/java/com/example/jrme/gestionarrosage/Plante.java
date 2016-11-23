@@ -1,5 +1,7 @@
 package com.example.jrme.gestionarrosage;
 
+import android.content.Context;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,6 +39,15 @@ public class Plante implements Comparable<Plante> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Méthode permettant l'arrosage de la plante à la date d'aujourd'hui
+     * @param planteDatabase PlanteDadabase
+     */
+    public void arrosage(PlanteDatabase planteDatabase) {
+        this.dernierArrosage = new Date();
+        planteDatabase.update(this.id, this.name, this.frequence, this.lieu, this.dernierArrosage);
     }
 
     /**

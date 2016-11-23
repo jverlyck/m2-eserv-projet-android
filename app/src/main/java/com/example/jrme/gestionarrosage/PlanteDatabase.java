@@ -168,13 +168,17 @@ public class PlanteDatabase extends SQLiteOpenHelper {
      * @param frequence La fréquence d'arrosage de la plante
      * @param lieu Le lieu où se trouve la plante
      */
-    public void update(int id, String name, int frequence, String lieu) {
+    public void update(int id, String name, int frequence, String lieu, Date dernierArrosage) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(PlanteTable.PLANTE_NAME, name);
         values.put(PlanteTable.PLANTE_FREQUENCE, frequence);
         values.put(PlanteTable.PLANTE_LIEU, lieu);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);
+        String date = sdf.format(dernierArrosage);
+        values.put(PlanteTable.PLANTE_DERNIER_ARROSAGE, date);
 
         String where = PlanteTable._ID + " = ?";
         String[] whereArgs = { String.valueOf(id) };

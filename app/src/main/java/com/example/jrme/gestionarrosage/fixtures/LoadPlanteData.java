@@ -13,9 +13,7 @@ public class LoadPlanteData {
     /**
      * Méthode qui stock des données de test dans la base de données
      */
-    public void load(Context context) {
-
-        PlanteDatabase planteDatabase = new PlanteDatabase(context);
+    public void load(PlanteDatabase planteDatabase) {
 
         String[][] plantes = {
             { "Acacia", "5", "Jardin Gauche"},
