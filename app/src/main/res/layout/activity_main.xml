@@ -38,6 +38,13 @@
             android:layout_height="fill_parent"
             android:text="@string/btn_ajout"
             android:id="@+id/btn_ajout_main" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_date_main"
+            android:id="@+id/btn_date_main" />
     </LinearLayout>
 
 

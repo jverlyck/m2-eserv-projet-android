@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private PlanteDatabase planteDatabase;
 
     private ListView list_plantes;
-    private Button btn_fixtures;
-    private Button btn_ajout;
+    private Button btn_fixtures, btn_ajout, btn_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         this.list_plantes = (ListView) findViewById(R.id.list_plantes_main);
         this.btn_fixtures = (Button) findViewById(R.id.btn_fixtures_main);
         this.btn_ajout    = (Button) findViewById(R.id.btn_ajout_main);
+        this.btn_date     = (Button) findViewById(R.id.btn_date_main);
     }
 
     /**
@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AjoutActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        this.btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DateActivity.class);
                 startActivityForResult(intent, 0);
             }
         });

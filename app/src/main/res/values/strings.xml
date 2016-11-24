@@ -3,6 +3,7 @@
 
     <string name="btn_fixtures">Precharger</string>
     <string name="btn_ajout">Add</string>
+    <string name="btn_date_main">Changer date</string>
 
     <string name="lb_titre_ajout">Ajout d\'une nouvelle plante</string>
     <string name="lb_nom">Nom</string>
@@ -21,4 +22,6 @@
 
     <string name="lb_titre_modif">Modification de la plante</string>
     <string name="btn_ajouter_modif">Modifier</string>
+
+    <string name="btn_confirmer_date">Valider</string>
 </resources>
