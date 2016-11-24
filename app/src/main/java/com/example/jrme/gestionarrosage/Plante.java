@@ -44,7 +44,7 @@ public class Plante implements Comparable<Plante> {
      * @param planteDatabase PlanteDadabase
      */
     public void arrosage(PlanteDatabase planteDatabase) {
-        this.dernierArrosage = new Date();
+        this.dernierArrosage = MainActivity.APP_DATE;
         planteDatabase.update(this.id, this.name, this.frequence, this.lieu, this.dernierArrosage);
     }
 
@@ -108,11 +108,11 @@ public class Plante implements Comparable<Plante> {
      * @return int
      */
     public int compareTo(Plante plante) {
-        long diff = Math.abs(new Date().getTime() - plante.dernierArrosage.getTime());
+        long diff = Math.abs(MainActivity.APP_DATE.getTime() - plante.dernierArrosage.getTime());
         int nbJours1 = (int)(diff / (1000 * 60 * 60 * 24));
         int nbJoursPasArrose1 = plante.frequence - nbJours1;
 
-        diff = Math.abs(new Date().getTime() - this.dernierArrosage.getTime());
+        diff = Math.abs(MainActivity.APP_DATE.getTime() - this.dernierArrosage.getTime());
         int nbJours2 = (int)(diff / (1000 * 60 * 60 * 24));
         int nbJoursPasArrose2 = this.frequence - nbJours2;
 

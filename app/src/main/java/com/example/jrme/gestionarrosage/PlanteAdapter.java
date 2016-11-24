@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,7 +58,7 @@ public class PlanteAdapter extends ArrayAdapter<Plante> {
      * @return int Couleur que l'on souhaite mettre
      */
     private int getColorBackground(Plante plante) {
-        long diff = Math.abs(new Date().getTime() - plante.getDernierArrosage().getTime());
+        long diff = Math.abs(MainActivity.APP_DATE.getTime() - plante.getDernierArrosage().getTime());
         int nbJours = (int)(diff / (1000 * 60 * 60 * 24));
 
         int nbJoursPasArrose = plante.getFrequence() - nbJours;

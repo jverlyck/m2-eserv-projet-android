@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.jrme.gestionarrosage.fixtures.LoadPlanteData;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,8 @@ import java.util.List;
  * Le point d'entrée de l'application affichant la liste des plantes.
  */
 public class MainActivity extends AppCompatActivity {
+
+    public static Date APP_DATE = new Date();
 
     public final static String MESSAGE_INFO = "Information";
 

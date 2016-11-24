@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -153,7 +152,7 @@ public class PlanteDatabase extends SQLiteOpenHelper {
         values.put(PlanteTable.PLANTE_LIEU, lieu);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);
-        String date = sdf.format(new Date());
+        String date = sdf.format(MainActivity.APP_DATE);
         values.put(PlanteTable.PLANTE_DERNIER_ARROSAGE, date);
 
         sqLiteDatabase.insert(PlanteTable.TABLE_NAME, null, values);
