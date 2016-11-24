@@ -36,7 +36,7 @@ public class PlanteAdapter extends ArrayAdapter<Plante> {
         if(viewHolder == null) {
             viewHolder = new PlanteViewHolder();
             viewHolder.name = (TextView) convertView.findViewById(R.id.txt_name);
-            viewHolder.lieu = (TextView) convertView.findViewById(R.id.txt_lieu);
+            viewHolder.lieu = (TextView) convertView.findViewById(R.id.txt_lieu_ajout);
             convertView.setTag(viewHolder);
         }
 

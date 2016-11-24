@@ -4,15 +4,21 @@
     <string name="btn_fixtures">Precharger</string>
     <string name="btn_ajout">Add</string>
 
-    <string name="lb_titre">Ajout d\'une nouvelle plante</string>
+    <string name="lb_titre_ajout">Ajout d\'une nouvelle plante</string>
     <string name="lb_nom">Nom</string>
-    <string name="txt_nom">saisir le nom</string>
+    <string name="txt_nom_ajout">saisir le nom</string>
     <string name="lb_frequence">Frequence d\'arrosage</string>
-    <string name="txt_frequence">saisir le nombre de jours</string>
+    <string name="txt_frequence_ajout">saisir le nombre de jours</string>
     <string name="lb_lieu">Lieu</string>
-    <string name="txt_lieu">saisir le lieu</string>
-    <string name="btn_reset">Reset</string>
-    <string name="btn_ajouter">Ajouter</string>
+    <string name="txt_lieu_ajout">saisir le lieu</string>
+    <string name="btn_reset_ajout">Reset</string>
+    <string name="btn_ajouter_ajout">Ajouter</string>
 
+    <string name="lb_titre_detail">Informations plante</string>
+    <string name="lb_date_arrosage">Date prochain arrosage</string>
+    <string name="btn_delete">Supprimer</string>
+    <string name="btn_update">Modifier</string>
 
+    <string name="lb_titre_modif">Modification de la plante</string>
+    <string name="btn_ajouter_modif">Modifier</string>
 </resources>

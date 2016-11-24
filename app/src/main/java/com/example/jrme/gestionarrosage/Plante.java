@@ -1,11 +1,9 @@
 package com.example.jrme.gestionarrosage;
 
-import android.content.Context;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
@@ -48,6 +46,20 @@ public class Plante implements Comparable<Plante> {
     public void arrosage(PlanteDatabase planteDatabase) {
         this.dernierArrosage = new Date();
         planteDatabase.update(this.id, this.name, this.frequence, this.lieu, this.dernierArrosage);
+    }
+
+    /**
+     * Retourne sous forme de chaîne la date du prochain arrosage de la plante
+     * @return String
+     */
+    public String getDateArrosage() {
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(this.dernierArrosage);
+        gc.add(GregorianCalendar.DAY_OF_MONTH, this.frequence);
+        Date dateArrosage = gc.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.FRANCE);
+        return sdf.format(dateArrosage);
     }
 
     /**

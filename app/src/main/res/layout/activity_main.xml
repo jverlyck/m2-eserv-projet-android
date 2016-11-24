@@ -12,32 +12,32 @@
 
 
     <ListView
-        android:layout_above="@+id/dev_bar"
+        android:layout_above="@+id/dev_bar_main"
         android:layout_alignParentTop="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_plantes" />
+        android:id="@+id/list_plantes_main" />
 
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dev_bar">
+        android:id="@+id/dev_bar_main">
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="@string/btn_fixtures"
-            android:id="@+id/btn_fixtures" />
+            android:id="@+id/btn_fixtures_main" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="@string/btn_ajout"
-            android:id="@+id/btn_ajout" />
+            android:id="@+id/btn_ajout_main" />
     </LinearLayout>
 
 

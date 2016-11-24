@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+/**
+ * Class AjoutActivity
+ * Author Jérôme Verlyck
+ * Activité d'ajout d'une nouvelle plante
+ */
 public class AjoutActivity extends AppCompatActivity {
 
     private PlanteDatabase planteDatabase;
@@ -29,12 +35,12 @@ public class AjoutActivity extends AppCompatActivity {
      * Charge les différents widgets de l'activité
      */
     private void loadWidget() {
-        this.txt_nom          = (EditText)  findViewById(R.id.txt_nom);
-        this.txt_frequence    = (EditText)  findViewById(R.id.txt_frequence);
-        this.txt_lieu         = (EditText)  findViewById(R.id.txt_lieu);
+        this.txt_nom          = (EditText)  findViewById(R.id.txt_nom_ajout);
+        this.txt_frequence    = (EditText)  findViewById(R.id.txt_frequence_ajout);
+        this.txt_lieu         = (EditText)  findViewById(R.id.txt_lieu_ajout);
 
-        this.btn_reset   = (Button) findViewById(R.id.btn_reset);
-        this.btn_ajouter = (Button) findViewById(R.id.btn_ajouter);
+        this.btn_reset   = (Button) findViewById(R.id.btn_reset_ajout);
+        this.btn_ajouter = (Button) findViewById(R.id.btn_ajouter_ajout);
     }
 
     /**
@@ -51,16 +57,21 @@ public class AjoutActivity extends AppCompatActivity {
         this.btn_ajouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                planteDatabase.add(
-                    txt_nom.getText().toString(),
-                    Integer.parseInt(txt_frequence.getText().toString()),
-                    txt_lieu.getText().toString()
-                );
+                String nom = txt_nom.getText().toString();
+                String frequence = txt_frequence.getText().toString();
+                String lieu = txt_lieu.getText().toString();
 
-                Intent intent = new Intent();
-                intent.putExtra(MainActivity.MESSAGE_INFO, "Plante \"" + txt_nom.getText() + "\" ajouté.");
-                AjoutActivity.this.setResult(1, intent);
-                AjoutActivity.this.finish();
+                if(nom.length() > 0 && frequence.length() > 0 && lieu.length() > 0) {
+                    planteDatabase.add(nom,Integer.parseInt(frequence), lieu);
+
+                    Intent intent = new Intent();
+                    intent.putExtra(MainActivity.MESSAGE_INFO, "Plante \"" + nom + "\" ajouté.");
+                    AjoutActivity.this.setResult(1, intent);
+                    AjoutActivity.this.finish();
+                }
+                else {
+                    Toast.makeText(AjoutActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

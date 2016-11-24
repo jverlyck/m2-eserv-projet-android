@@ -14,6 +14,11 @@ import com.example.jrme.gestionarrosage.fixtures.LoadPlanteData;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class MainActivity
+ * Author Jérôme Verlyck
+ * Le point d'entrée de l'application affichant la liste des plantes.
+ */
 public class MainActivity extends AppCompatActivity {
 
     public final static String MESSAGE_INFO = "Information";
@@ -53,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
      * Charge les différents widgets de l'activité
      */
     private void loadWidget() {
-        this.list_plantes = (ListView) findViewById(R.id.list_plantes);
-        this.btn_fixtures = (Button) findViewById(R.id.btn_fixtures);
-        this.btn_ajout    = (Button) findViewById(R.id.btn_ajout);
+        this.list_plantes = (ListView) findViewById(R.id.list_plantes_main);
+        this.btn_fixtures = (Button) findViewById(R.id.btn_fixtures_main);
+        this.btn_ajout    = (Button) findViewById(R.id.btn_ajout_main);
     }
 
     /**
@@ -74,20 +79,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AjoutActivity.class);
                 startActivityForResult(intent, 0);
-
             }
         });
 
         this.list_plantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Plante plante = (Plante) adapterView.getItemAtPosition(i);
 
-
-
-                /*if(o instanceof Plante)
-                    Toast.makeText(MainActivity.this, "oui", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this, "non", Toast.LENGTH_SHORT).show();*/
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra(MESSAGE_INFO, plante.getId());
+                startActivityForResult(intent, 0);
             }
         });
 
