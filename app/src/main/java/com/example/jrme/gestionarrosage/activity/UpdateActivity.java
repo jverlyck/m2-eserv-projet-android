@@ -1,4 +1,4 @@
-package com.example.jrme.gestionarrosage;
+package com.example.jrme.gestionarrosage.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.jrme.gestionarrosage.entity.Plante;
+import com.example.jrme.gestionarrosage.repository.PlanteDatabase;
+import com.example.jrme.gestionarrosage.R;
 
 /**
  * Class UpdateActivity

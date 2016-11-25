@@ -1,17 +1,16 @@
 package com.example.jrme.gestionarrosage.fixtures;
 
-import android.content.Context;
-
-import com.example.jrme.gestionarrosage.PlanteDatabase;
+import com.example.jrme.gestionarrosage.repository.PlanteDatabase;
 
 /**
  * Class LoadPlanteData
  * Author Jérôme Verlyck
+ * Fixtures pour la génération des plantes pour le tests de l'application.
  */
 public class LoadPlanteData {
 
     /**
-     * Méthode qui stock des données de test dans la base de données
+     * Méthode qui stock des données de test dans la base de données.
      */
     public void load(PlanteDatabase planteDatabase) {
 

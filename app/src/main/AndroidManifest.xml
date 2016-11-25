@@ -8,17 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AjoutActivity" />
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".UpdateActivity" />
-        <activity android:name=".DateActivity"></activity>
+        <activity android:name=".activity.AjoutActivity" />
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.UpdateActivity" />
+        <activity android:name=".activity.DateActivity"/>
     </application>
 
 </manifest>

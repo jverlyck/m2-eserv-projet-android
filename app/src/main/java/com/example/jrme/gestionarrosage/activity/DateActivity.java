@@ -1,4 +1,4 @@
-package com.example.jrme.gestionarrosage;
+package com.example.jrme.gestionarrosage.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import com.example.jrme.gestionarrosage.R;
+
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * Class DateActivity
+ * Author Jérôme Verlyck
+ * Activité pour le changement de date utilisé pour les tests de l'application.
+ */
 public class DateActivity extends AppCompatActivity {
 
     private DatePicker dp_date;

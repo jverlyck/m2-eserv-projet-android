@@ -1,4 +1,7 @@
-package com.example.jrme.gestionarrosage;
+package com.example.jrme.gestionarrosage.entity;
+
+import com.example.jrme.gestionarrosage.repository.PlanteDatabase;
+import com.example.jrme.gestionarrosage.activity.MainActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +12,7 @@ import java.util.Locale;
 /**
  * Class Plante
  * Author Jérôme Verlyck
+ * Entity de la table Plante
  */
 public class Plante implements Comparable<Plante> {
 

@@ -1,4 +1,4 @@
-package com.example.jrme.gestionarrosage;
+package com.example.jrme.gestionarrosage.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+
+import com.example.jrme.gestionarrosage.activity.MainActivity;
+import com.example.jrme.gestionarrosage.entity.Plante;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

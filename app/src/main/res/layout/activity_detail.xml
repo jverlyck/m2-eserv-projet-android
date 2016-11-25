@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jrme.gestionarrosage.DetailActivity">
+    tools:context=".activity.DetailActivity">
 
     <TextView
         android:text="@string/lb_titre_detail"

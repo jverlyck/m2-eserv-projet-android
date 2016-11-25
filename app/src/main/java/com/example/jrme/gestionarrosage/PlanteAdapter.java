@@ -8,11 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.jrme.gestionarrosage.activity.MainActivity;
+import com.example.jrme.gestionarrosage.entity.Plante;
+
 import java.util.List;
 
 /**
  * Class PlanteAdapter
  * Author Jérôme Verlyck
+ * Adapter pour la liste des plantes.
  */
 public class PlanteAdapter extends ArrayAdapter<Plante> {
 
@@ -65,7 +69,7 @@ public class PlanteAdapter extends ArrayAdapter<Plante> {
         if(nbJoursPasArrose > 1) {
             return Color.rgb(173, 207, 79);
         }
-        else if(nbJoursPasArrose == 1) {
+        else if(nbJoursPasArrose == 1 || nbJoursPasArrose == 0) {
             return Color.rgb(252, 127, 60);
         }
 
