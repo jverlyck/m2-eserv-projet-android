@@ -44,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
         this.loadWidget();
         this.loadEvent();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         this.loadListPlantes();
     }
 
@@ -51,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == 1) {
-            this.loadListPlantes();
-
             String message = data.getStringExtra(MESSAGE_INFO);
             Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
         }
