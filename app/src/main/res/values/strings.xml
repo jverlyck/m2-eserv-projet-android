@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Mes Plantes</string>
 
+    <string name="lb_titre_main">Mes plantes</string>
     <string name="btn_fixtures">Precharger</string>
-    <string name="btn_ajout">Add</string>
+    <string name="btn_ajout">+</string>
     <string name="btn_date_main">Changer date</string>
 
     <string name="lb_titre_ajout">Ajout d\'une nouvelle plante</string>

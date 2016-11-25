@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -10,42 +11,54 @@
     tools:context=".activity.MainActivity">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lb_titre_main"
+        android:id="@+id/lb_titre_main"
+        android:layout_alignParentTop="true"
+        android:textAlignment="center" />
 
     <ListView
-        android:layout_above="@+id/dev_bar_main"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/lb_titre_main"
+        android:layout_above="@+id/btn_ajout_main"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_plantes_main" />
+        android:id="@+id/list_plantes_main"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp" />
 
-    <LinearLayout
+    <android.support.design.widget.FloatingActionButton
+        android:layout_above="@+id/btn_fixtures_main"
+        android:id="@+id/btn_ajout_main"
+        app:fabSize="mini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        android:layout_centerHorizontal="true"
+        app:backgroundTint="@android:color/holo_green_light" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_date_main"
+        app:fabSize="mini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calend"
+        app:backgroundTint="@android:color/holo_blue_light"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_alignParentEnd="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_fixtures_main"
+        app:fabSize="mini"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dev_bar_main">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:text="@string/btn_fixtures"
-            android:id="@+id/btn_fixtures_main" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:text="@string/btn_ajout"
-            android:id="@+id/btn_ajout_main" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_date_main"
-            android:id="@+id/btn_date_main" />
-    </LinearLayout>
+        android:src="@drawable/ic_fixtures"
+        app:backgroundTint="@android:color/holo_red_light"
+        android:layout_alignTop="@+id/btn_date_main"
+        android:layout_toStartOf="@+id/btn_date_main"
+        android:layout_marginRight="5sp" />
 
 
 </RelativeLayout>

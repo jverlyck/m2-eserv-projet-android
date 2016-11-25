@@ -1,19 +1,20 @@
 package com.example.jrme.gestionarrosage.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.jrme.gestionarrosage.entity.Plante;
 import com.example.jrme.gestionarrosage.PlanteAdapter;
-import com.example.jrme.gestionarrosage.repository.PlanteDatabase;
 import com.example.jrme.gestionarrosage.R;
+import com.example.jrme.gestionarrosage.entity.Plante;
 import com.example.jrme.gestionarrosage.fixtures.LoadPlanteData;
+import com.example.jrme.gestionarrosage.repository.PlanteDatabase;
 
 import java.util.Collections;
 import java.util.Date;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private PlanteDatabase planteDatabase;
 
     private ListView list_plantes;
-    private Button btn_fixtures, btn_ajout, btn_date;
+    private FloatingActionButton btn_fixtures, btn_date, btn_ajout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadWidget() {
         this.list_plantes = (ListView) findViewById(R.id.list_plantes_main);
-        this.btn_fixtures = (Button) findViewById(R.id.btn_fixtures_main);
-        this.btn_ajout    = (Button) findViewById(R.id.btn_ajout_main);
-        this.btn_date     = (Button) findViewById(R.id.btn_date_main);
+        this.btn_fixtures = (FloatingActionButton) findViewById(R.id.btn_fixtures_main);
+        this.btn_ajout    = (FloatingActionButton) findViewById(R.id.btn_ajout_main);
+        this.btn_date     = (FloatingActionButton) findViewById(R.id.btn_date_main);
     }
 
     /**
