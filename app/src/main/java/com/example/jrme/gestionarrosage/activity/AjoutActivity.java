@@ -65,12 +65,17 @@ public class AjoutActivity extends AppCompatActivity {
                 String lieu = txt_lieu.getText().toString();
 
                 if(nom.length() > 0 && frequence.length() > 0 && lieu.length() > 0) {
-                    planteDatabase.add(nom,Integer.parseInt(frequence), lieu);
+                    if(Integer.parseInt(frequence) > 0) {
+                        planteDatabase.add(nom, Integer.parseInt(frequence), lieu);
 
-                    Intent intent = new Intent();
-                    intent.putExtra(MainActivity.MESSAGE_INFO, "Plante \"" + nom + "\" ajouté.");
-                    AjoutActivity.this.setResult(1, intent);
-                    AjoutActivity.this.finish();
+                        Intent intent = new Intent();
+                        intent.putExtra(MainActivity.MESSAGE_INFO, "Plante \"" + nom + "\" ajouté.");
+                        AjoutActivity.this.setResult(1, intent);
+                        AjoutActivity.this.finish();
+                    }
+                    else {
+                        Toast.makeText(AjoutActivity.this, "La fréquence doit être supérieur à 0", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(AjoutActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();

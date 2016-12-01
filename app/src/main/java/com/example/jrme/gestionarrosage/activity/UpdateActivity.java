@@ -69,13 +69,18 @@ public class UpdateActivity extends AppCompatActivity {
                 String lieu = txt_lieu.getText().toString();
 
                 if(nom.length() > 0 && frequence.length() > 0 && lieu.length() > 0) {
-                    Plante plante = planteDatabase.unique(id_plante);
-                    planteDatabase.update(id_plante, nom, Integer.parseInt(frequence), lieu, plante.getDernierArrosage());
+                    if(Integer.parseInt(frequence) > 0) {
+                        Plante plante = planteDatabase.unique(id_plante);
+                        planteDatabase.update(id_plante, nom, Integer.parseInt(frequence), lieu, plante.getDernierArrosage());
 
-                    Intent intent = new Intent();
-                    intent.putExtra(DetailActivity.MESSAGE_INFO, "Plante \"" + nom + "\" modifié.");
-                    UpdateActivity.this.setResult(1, intent);
-                    UpdateActivity.this.finish();
+                        Intent intent = new Intent();
+                        intent.putExtra(DetailActivity.MESSAGE_INFO, "Plante \"" + nom + "\" modifié.");
+                        UpdateActivity.this.setResult(1, intent);
+                        UpdateActivity.this.finish();
+                    }
+                    else {
+                        Toast.makeText(UpdateActivity.this, "La fréquence doit être supérieur à 0", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
                     Toast.makeText(UpdateActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
