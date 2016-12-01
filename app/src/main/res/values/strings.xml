@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mes Plantes</string>
+    <string name="app_name">Plante'O</string>
 
     <string name="lb_titre_main">Mes plantes</string>
     <string name="btn_fixtures">Precharger</string>
